@@ -1,1 +1,388 @@
 @import "tailwindcss";
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #555;
+  font-size: 0.9rem;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.nav-link:hover {
+  color: #168bd0;
+  transform: translateY(-2px);
+}
+
+.primary-button {
+  background: #2c9cdb;
+  transition: background-color 160ms ease;
+}
+
+.primary-button:hover {
+  background: #168bd0;
+}
+
+.carousel-arrow {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  display: grid;
+  height: 42px;
+  width: 42px;
+  transform: translateY(-50%);
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 9999px;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  transition: background-color 160ms ease;
+}
+
+.carousel-arrow:hover {
+  background: rgb(255 255 255 / 18%);
+}
+
+.section-space {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+}
+
+.course-image {
+  height: 150px;
+  width: 150px;
+}
+
+.about-image {
+  min-height: 400px;
+  max-height: 560px;
+}
+
+.join-banner {
+  min-height: 190px;
+}
+
+.student-image {
+  height: 230px;
+  object-position: center 28%;
+}
+
+.feedback-section {
+  position: relative;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+  border: 1px solid #e5f1f8;
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(ellipse at 4% 5%, rgb(44 156 219 / 12%), transparent 30%),
+    radial-gradient(ellipse at 97% 95%, rgb(115 205 247 / 15%), transparent 28%),
+    #f8fcff;
+  box-shadow: 0 20px 60px rgb(28 93 131 / 6%);
+}
+
+.feedback-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: grid;
+  height: 42px;
+  width: 42px;
+  transform: translateY(-50%);
+  place-items: center;
+  border-radius: 9999px;
+  background: #2c9cdb;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1;
+  box-shadow: 0 6px 16px rgb(44 156 219 / 30%);
+  transition: background-color 160ms ease;
+}
+
+.feedback-arrow:hover {
+  background: #168bd0;
+}
+
+.feedback-prev {
+  left: -21px;
+}
+
+.feedback-next {
+  right: -21px;
+}
+
+.company-logo {
+  max-height: 42px;
+  max-width: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.social-link {
+  display: grid;
+  height: 34px;
+  width: 34px;
+  place-items: center;
+  border-radius: 9999px;
+  background: #292929;
+  transition: background-color 160ms ease;
+}
+
+.social-link:hover {
+  background: #2c9cdb;
+}
+
+.social-link img {
+  height: 16px;
+  width: 16px;
+  object-fit: contain;
+}
+
+.course-card,
+.testimonial-card,
+.student-card {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.course-card:hover,
+.testimonial-card:hover,
+.student-card:hover {
+  border-color: #b8def4;
+}
+
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+  border-color: #dcecf6;
+  background: linear-gradient(145deg, #fff 68%, #f4faff);
+  box-shadow: 0 10px 28px rgb(30 94 132 / 7%);
+}
+
+.testimonial-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, #2c9cdb, #8bd1f4);
+  content: "";
+}
+
+.faq-item {
+  background: white;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.faq-item:hover,
+.faq-item:focus-within {
+  border-color: #b6dff4;
+  box-shadow: 0 8px 24px rgb(30 94 132 / 8%);
+}
+
+.faq-trigger {
+  position: relative;
+  background: white;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.faq-trigger::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  transform: scaleY(0);
+  transform-origin: center;
+  background: #2c9cdb;
+  content: "";
+  transition: transform 220ms ease;
+}
+
+.faq-trigger:hover,
+.faq-trigger.is-open {
+  background: #f1f9fe;
+  color: #167db5;
+}
+
+.faq-trigger:hover::before,
+.faq-trigger.is-open::before {
+  transform: scaleY(1);
+}
+
+.faq-chevron {
+  color: #667987;
+  transition:
+    color 200ms ease,
+    transform 220ms ease;
+}
+
+.faq-trigger:hover .faq-chevron,
+.faq-trigger.is-open .faq-chevron {
+  color: #168bd0;
+}
+
+.faq-trigger.is-open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-trigger:focus-visible {
+  outline: 2px solid #2c9cdb;
+  outline-offset: -2px;
+}
+
+.company-logo {
+  transition: filter 220ms ease;
+}
+
+.company-logo:hover {
+  filter: saturate(1.2);
+}
+
+@media (max-width: 767px) {
+  .site-header {
+    position: relative;
+    z-index: 30;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: calc(100% - 0.25rem);
+    right: 1.25rem;
+    left: 1.25rem;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    padding: 0.5rem;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+  }
+
+  .nav-link:hover {
+    background: #f2f9fd;
+  }
+
+  .mobile-register {
+    margin: 0.5rem 0.75rem;
+    text-align: center;
+  }
+
+  .section-space {
+    padding-top: 4.5rem;
+  }
+
+  .course-image {
+    height: 124px;
+    width: 124px;
+  }
+
+  .about-image {
+    min-height: 320px;
+    max-height: 420px;
+  }
+
+  .student-image {
+    height: 280px;
+  }
+
+  .feedback-section {
+    padding-top: 5rem;
+  }
+
+  .feedback-prev {
+    left: -10px;
+  }
+
+  .feedback-next {
+    right: -10px;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-slide {
+    min-height: 460px;
+  }
+
+  .carousel-arrow {
+    height: 34px;
+    width: 34px;
+  }
+
+  .course-image {
+    height: 104px;
+    width: 104px;
+  }
+
+  .course-card > div {
+    padding: 0.65rem;
+  }
+
+  .course-card h3 {
+    font-size: 0.875rem;
+  }
+
+  .course-card p {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+
+  .feedback-arrow {
+    height: 34px;
+    width: 34px;
+  }
+
+  .testimonial-card {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,7 +1,14 @@
-const App = () => {
-  return (
-    <div>App</div>
-  );
-};
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import LandingPage from './pages/LandingPage.jsx'
 
-export default App;
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<LandingPage />} path="*" />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
